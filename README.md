@@ -118,3 +118,17 @@ A MFT é uma estrutura de dados crítica no sistema de arquivos NTFS (New Techno
    - Em caso de corrupção do sistema de arquivos, a MFT ajuda na recuperação de dados, já que contém informações cruciais sobre a localização e estrutura dos arquivos.
 
 
+
+| Característica / Sistema de Arquivos | FAT (FAT12, FAT16, FAT32)         | NTFS                   | ext2                   | ext3                   |
+|--------------------------------------|-----------------------------------|------------------------|------------------------|------------------------|
+| **Journaling**                        | Não implementa                    | Sim (journaling de metadados) | Não implementa          | Sim (journaling de dados e metadados) |
+| **Master File Table (MFT)**           | Não possui                        | Sim (utiliza MFT)      | Não possui             | Não possui             |
+| **Integridade dos Dados**             | Depende de verificações ao montar | Garantida por journaling | Depende de verificações ao montar | Garantida por journaling |
+| **Recuperação após Falhas**           | Limitada; sem journaling          | Rápida e eficiente     | Limitada; sem journaling | Rápida e eficiente     |
+| **Compatibilidade**                   | Alta                              | Alta                   | Alta                   | Alta                   |
+| **Eficiência em Dispositivos Pequenos**| Alta                             | Média                  | Média                  | Média                  |
+| **Recursos Avançados**                | Ausentes                          | Sim (com MFT)          | Limitados              | Limitados              |
+| **Utilizado em**                      | Cartões de memória, dispositivos simples | Windows              | Linux                  | Linux                  |
+| **Tamanho Máximo de Volume**          | FAT16: 4 GB a 32 GB (dependendo da implementação) | 16 EB (exabytes)       | 32 TB                  | 32 TB                  |
+| **Tamanho Máximo de Arquivo**         | FAT16: 2 GB                       | 16 TB                  | 2 TB                   | 2 TB                   |
+
